@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <>
       <header className="flex justify-between items-center px-6 py-4 w-full max-w-screen-lg mx-auto">
-        <div className="font-bold text-xl">LOGO</div>
+        <div className="font-bold text-xl">WEBSTORE</div>
         <nav className="flex items-center">
           {(isTablet || isDesktop) && (
             <div className="flex items-center">
