@@ -7,9 +7,6 @@ import Cart from "./pages/Cart";
 import Products from "./pages/Products";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import {
-  useQuery,
-  useMutation,
-  useQueryClient,
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
@@ -21,16 +18,16 @@ const App = () => {
   return (
     <BrowserRouter>
     <QueryClientProvider client={queryClient}>
-    <Header />
+      <Header />
       <Routes>
-        <Route path="/" element={<Products  />} />
-        <Route path="/products" element={<LandingPage  />} />
-        <Route path="/products/:productId" element={<ProductDetailPage />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/product/:id" element={<ProductDetailPage />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </QueryClientProvider>
-    </BrowserRouter>
+  </BrowserRouter>
   );
 };
 export default App;

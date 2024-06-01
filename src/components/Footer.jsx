@@ -1,9 +1,12 @@
-import React from 'react'
+// src/components/Footer.js
+import React from 'react';
 
-function Footer() {
+const Footer = () => {
   return (
-    <div>Footer</div>
-  )
-}
+    <footer>
+      <p>© 2024 Web Store. All rights reserved.</p>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;
