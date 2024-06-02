@@ -17,7 +17,7 @@ const Header = () => {
         <nav className="flex items-center">
           {(isTablet || isDesktop) && (
             <div className="flex items-center">
-              <ul className="flex space-x-8 mr-56">
+              <ul className="flex space-x-8 mr-16">
                 <li>
                   <a href="/" className="hover:text-gray-600">
                     Home
@@ -76,7 +76,7 @@ const Header = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    className="h-6 w-6 absolute top-4 right-4 cursor-pointer"
+                    className="h-6 w-6 absolute top-6 right-6 cursor-pointer"
                     onClick={() => setIsOpen(false)}
                   >
                     <path
