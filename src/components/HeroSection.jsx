@@ -16,13 +16,13 @@ const HeroSection = () => {
       </div>
       <div className="relative z-10 text-center px-4">
         <h1 className="text-white text-lg sm:text-xl md:text-4xl lg:text-xxl font-bold mb-2 mt-12">
-          Discover Your Perfect Style at WebStore!
+          DISCOVER YOUR STYLE AT WEBSTORE
         </h1>
         <p className="text-white text-xs sm:text-sm md:text-lg lg:text-sm mb-6 mx-auto sm:max-w-xs md:max-w-md lg:max-w-lg font-semibold">
           Shop now and transform your lifestyle with our exclusive collections!
         </p>
-        <button className="text-white font-bold py-2 sm:py-3 px-4 sm:px-6 border border-white border-2 rounded-xl transition-transform duration-300 transform group-hover:scale-110">
-          Shop Now
+        <button className="text-white font-bold py-2 sm:py-3 px-4 sm:px-6 border border-white border-2  transition-transform duration-300 transform group-hover:scale-110">
+          SHOP NOW
         </button>
       </div>
     </div>

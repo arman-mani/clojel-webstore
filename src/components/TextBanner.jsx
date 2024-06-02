@@ -2,15 +2,9 @@ import React from "react";
 
 const TextBanner = () => {
   return (
-    <div className="px-4 sm:px-8 md:px-10 lg:px-[150px] py-10 bg-gray-100">
+    <div className="px-4 sm:px-8 md:px-10 lg:px-10 py-10 bg-gray-100">
       <h2 className="text-2xl sm:text-2xl md:text-2xl font-bold">WEBSTORE</h2>
       <p className="mt-2 text-sm sm:text-base md:text-sm text-gray-700">
-        Welcome to WebStore, your ultimate destination for electronics, clothes,
-        and jewelry all in one place. At WebStore, we strive to offer the best
-        products to meet all your needs, whether you're looking for the latest
-        gadgets, trendy fashion, or exquisite jewelry.
-        <br />
-        <br />
         Our collection of{" "}
         <a href="#" className="text-gray-900 underline hover:text-gray-400">
           electronics
