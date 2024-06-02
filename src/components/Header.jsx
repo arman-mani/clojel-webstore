@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import { FaShoppingCart } from "react-icons/fa";
+import { IoCartOutline, IoPersonOutline } from "react-icons/io5";
+import { IoMdHeartEmpty } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
@@ -13,7 +15,9 @@ const Header = () => {
   return (
     <>
       <header className="flex justify-between items-center px-6 py-4 w-full max-w-screen-lg mx-auto">
-        <div className="font-bold text-xl">WEBSTORE</div>
+        <Link to="/">
+          <div className="font-bold text-xl flex-grow">WEBSTORE</div>
+        </Link>
         <nav className="flex items-center">
           {(isTablet || isDesktop) && (
             <div className="flex items-center">
@@ -35,20 +39,18 @@ const Header = () => {
                 </li>
               </ul>
               <div className="flex items-center">
-                <FaShoppingCart className="h-6 w-6 mr-4 hover:text-gray-600" />
-                <button className="bg-black text-white px-4 py-2 rounded mr-4 hover:text-black hover:bg-gray-100 border border-black border-solid">
-                  Login
-                </button>
+                <IoCartOutline className="h-6 w-6 mr-4 hover:text-gray-600" />
+                <IoMdHeartEmpty className="h-6 w-6 mr-4 hover:text-gray-600" />
+                <IoPersonOutline className="h-6 w-6 hover:text-gray-600" />
               </div>
             </div>
           )}
           {isMobile && (
             <div className="flex items-center">
               <div className="flex items-center mr-4">
-                <FaShoppingCart className="h-6 w-6 mr-4 hover:text-gray-600" />
-                <button className="bg-black text-white px-4 py-2 rounded mr-4 hover:text-black hover:bg-gray-100 border border-black border-solid">
-                  Login
-                </button>
+                <IoCartOutline className="h-6 w-6 mr-4 hover:text-gray-600" />
+                <IoMdHeartEmpty className="h-6 w-6 mr-4 hover:text-gray-600" />
+                <IoPersonOutline className="h-6 w-6 hover:text-gray-600" />
               </div>
               <div
                 onClick={() => setIsOpen(!isOpen)}
