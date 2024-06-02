@@ -7,7 +7,7 @@ import Cart from "./pages/Cart";
 import Products from "./pages/Products";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import ChatBot from "./components/ChatBot"; // Import the ChatBot component
+import ChatBot from "./components/ChatBot";
 
 const queryClient = new QueryClient();
 
