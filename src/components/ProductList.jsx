@@ -45,12 +45,12 @@ function ProductList() {
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = Math.min(currentPage * ITEMS_PER_PAGE, filteredProducts.length);
 
-  // Função para avançar para a próxima página
+
   const nextPage = () => {
     setCurrentPage(currentPage => Math.min(currentPage + 1, totalPages));
   };
 
-  // Função para retroceder para a página anterior
+ 
   const prevPage = () => {
     setCurrentPage(currentPage => Math.max(currentPage - 1, 1));
   };

@@ -2,7 +2,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { getProductById } from '../api/dataFetching'; // Assume you have an API function to fetch a product by ID
+import { getProductById } from '../api/dataFetching'; 
 
 function ProductDetail() {
   const { id } = useParams();
