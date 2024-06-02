@@ -43,7 +43,9 @@ const CampaignSlider = () => {
       />
       <div className="absolute bottom-4 left-4 text-white shadow-text-sm">
         <h2 className="text-2xl font-bold mb-2 ml-10">BEST SELLERS</h2>
-        <button className="bg-black text-white px-4 py-2">SHOP NOW</button>
+        <button className="bg-black text-white px-4 py-2 transition-transform duration-300 transform hover:scale-110">
+          SHOP NOW
+        </button>
       </div>
       {showLeftArrow && (
         <button
