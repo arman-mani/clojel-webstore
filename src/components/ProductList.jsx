@@ -38,19 +38,18 @@ function ProductList() {
     ? products
     : products.filter(product => product.category === selectedCategory);
 
-  // Calcula o total de páginas
+
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
 
-  // Calcula o índice inicial e final dos itens da página atual
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = Math.min(currentPage * ITEMS_PER_PAGE, filteredProducts.length);
 
-  // Função para avançar para a próxima página
+
   const nextPage = () => {
     setCurrentPage(currentPage => Math.min(currentPage + 1, totalPages));
   };
 
-  // Função para retroceder para a página anterior
+
   const prevPage = () => {
     setCurrentPage(currentPage => Math.max(currentPage - 1, 1));
   };
