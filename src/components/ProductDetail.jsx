@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getProductById } from '../api/dataFetching'; 
-import CartContext from '../context/CartContext';
+import {CartContext} from '../context/CartContext';
 
 function ProductDetail() {
   const { id } = useParams();
