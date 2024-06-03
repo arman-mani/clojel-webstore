@@ -49,7 +49,6 @@ function ProductList() {
     setCurrentPage(currentPage => Math.min(currentPage + 1, totalPages));
   };
 
-
   const prevPage = () => {
     setCurrentPage(currentPage => Math.max(currentPage - 1, 1));
   };
