@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,18 +7,18 @@ import { faTshirt, faLaptop, faCouch, faGem, faReplyAll } from '@fortawesome/fre
 import { getProducts, getProductsCategory } from '../api/dataFetching';
 
 const categoryIcons = {
-  "men's clothing": faTshirt,
-  "electronics": faLaptop,
-  "jewelery": faGem,
-  "women's clothing": faTshirt,
-  "furniture": faCouch,
-  "All": faReplyAll,
+ "men's clothing": faTshirt,
+ "electronics": faLaptop,
+ "jewelery": faGem,
+ "women's clothing": faTshirt,
+ "furniture": faCouch,
+ "All": faReplyAll,
 };
 
 const ITEMS_PER_PAGE = 10;
 
 function ProductList() {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
 
   const { data: products, isLoading: productsLoading, isError: productsError } = useQuery({
@@ -30,20 +31,21 @@ function ProductList() {
     queryFn: getProductsCategory
   });
 
-  if (productsLoading || categoriesLoading) return <div>Loading...</div>;
-  if (productsError || categoriesError) return <div>Failed to load data. Please try again later.</div>;
+  useEffect(() => {
+    setCurrentPage(1); // Reset to first page whenever category changes
+  }, [selectedCategory]);
 
-  // Filtra os produtos de acordo com a categoria selecionada
-  const filteredProducts = selectedCategory === 'All'
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = currentPage * ITEMS_PER_PAGE;
+
+  const filteredProducts = selectedCategory === 'all'
     ? products
     : products.filter(product => product.category === selectedCategory);
 
+  if (productsLoading || categoriesLoading) return <div>Loading...</div>;
+  if (productsError || categoriesError) return <div>Failed to load data. Please try again later.</div>;
 
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
-
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = Math.min(currentPage * ITEMS_PER_PAGE, filteredProducts.length);
-
 
   const nextPage = () => {
     setCurrentPage(currentPage => Math.min(currentPage + 1, totalPages));
@@ -54,13 +56,13 @@ function ProductList() {
   };
 
   return (
-    <div>
-      <h1 className="mb-10 text-xl font-bold">Product List</h1>
+    <div className="p-4">
+      <h1 className="mb-10 text-xl font-bold text-center">Product List</h1>
 
-      <div className="mb-5 flex space-x-4 overflow-x-auto py-4">
+      <div className="mb-5 flex justify-center space-x-4 overflow-x-auto py-4">
         <div
-          className={`flex flex-col items-center cursor-pointer ${selectedCategory === 'All' ? 'text-blue-500' : ''}`}
-          onClick={() => setSelectedCategory('All')}
+          className={`flex flex-col items-center cursor-pointer ${selectedCategory === 'all' ? 'text-blue-500' : ''}`}
+          onClick={() => setSelectedCategory('all')}
         >
           <FontAwesomeIcon icon={faReplyAll} size="2x" />
           <span>All</span>
@@ -77,9 +79,9 @@ function ProductList() {
         ))}
       </div>
 
-      <div className="flex flex-wrap -mx-4">
+      <div className="flex flex-wrap -mx-2 justify-center">
         {filteredProducts.slice(startIndex, endIndex).map(({ id, image, title, category, rating, price }) => (
-          <div key={id} className="w-1/5 px-4 mb-8">
+          <div key={id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 px-2 mb-8">
             <Link to={`/product/${id}`} className="block bg-gray-100 mb-5 rounded-md p-5 h-full">
               <img className="h-40 w-full object-contain mb-4" src={image} alt={title} />
               <h2 className="font-bold mb-2">{title}</h2>
@@ -92,9 +94,21 @@ function ProductList() {
       </div>
 
       <div className="flex justify-between mt-8">
-        <button onClick={prevPage} disabled={currentPage === 1}>Previous</button>
+        <button 
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 disabled:bg-gray-300"
+          onClick={prevPage} 
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
         <span>Page {currentPage} of {totalPages}</span>
-        <button onClick={nextPage} disabled={currentPage === totalPages}>Next</button>
+        <button 
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 disabled:bg-gray-300"
+          onClick={nextPage} 
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
       </div>
     </div>
   );

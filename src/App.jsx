@@ -6,6 +6,9 @@ import LandingPage from "./pages/LandingPage";
 import Cart from "./pages/Cart";
 import Products from "./pages/Products";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import { CardProvider } from './context/CartContext';
+import OrderConfirmationPage from "./pages/ OrderConfirmationPage";
+
 import {
   QueryClient,
   QueryClientProvider,
@@ -18,14 +21,17 @@ const App = () => {
   return (
     <BrowserRouter>
     <QueryClientProvider client={queryClient}>
+      <CardProvider>
       <Header />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<ProductDetailPage />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
       </Routes>
       <Footer />
+      </CardProvider>
     </QueryClientProvider>
   </BrowserRouter>
   );
