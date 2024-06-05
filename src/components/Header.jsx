@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useMediaQuery } from "react-responsive";
 import { IoCartOutline, IoPersonOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 const Header = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
@@ -11,35 +12,50 @@ const Header = () => {
   });
   const isDesktop = useMediaQuery({ query: "(min-width: 1025px)" });
   const [isOpen, setIsOpen] = useState(false);
+  const { cartItems } = useContext(CartContext);
+
+  const totalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   return (
     <>
       <header className="flex justify-between items-center px-6 py-4 w-full max-w-screen-lg mx-auto">
         <Link to="/">
-          <div className="font-bold text-xl flex-grow">WEBSTORE</div>
+          <div className="font-bold text-xl flex-grow logo">CLOJEL</div>
         </Link>
         <nav className="flex items-center">
           {(isTablet || isDesktop) && (
             <div className="flex items-center">
               <ul className="flex space-x-8 mr-16">
                 <li>
-                  <a href="/" className="hover:text-gray-600">
+                  <Link to="/" className="hover:text-gray-600">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/products" className="hover:text-gray-600">
+                  <Link to="/products" className="hover:text-gray-600">
                     Products
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/cart" className="hover:text-gray-600">
+                  <Link to="/cart" className="hover:text-gray-600">
                     Shopping Cart
-                  </a>
+                  </Link>
                 </li>
               </ul>
               <div className="flex items-center">
-                <IoCartOutline className="h-6 w-6 mr-4 hover:text-gray-600" />
+                <div className="relative mr-4">
+                  <Link to="/cart">
+                    <IoCartOutline className="h-6 w-6 hover:text-gray-600" />
+                  </Link>
+                  {totalItems > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-blue-600 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">
+                      {totalItems}
+                    </span>
+                  )}
+                </div>
                 <IoMdHeartEmpty className="h-6 w-6 mr-4 hover:text-gray-600" />
                 <IoPersonOutline className="h-6 w-6 hover:text-gray-600" />
               </div>
@@ -48,8 +64,17 @@ const Header = () => {
           {isMobile && (
             <div className="flex items-center">
               <div className="flex items-center mr-4">
-                <IoCartOutline className="h-6 w-6 mr-4 hover:text-gray-600" />
-                <IoMdHeartEmpty className="h-6 w-6 mr-4 hover:text-gray-600" />
+                <div className="relative mr-2">
+                  <Link to="/cart">
+                    <IoCartOutline className="h-6 w-6 hover:text-gray-600" />
+                  </Link>
+                  {totalItems > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-blue-600 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">
+                      {totalItems}
+                    </span>
+                  )}
+                </div>
+                <IoMdHeartEmpty className="h-6 w-6 mr-2 hover:text-gray-600" />
                 <IoPersonOutline className="h-6 w-6 hover:text-gray-600" />
               </div>
               <div
@@ -90,19 +115,19 @@ const Header = () => {
                   </svg>
                   <ul className="flex flex-col space-y-4">
                     <li>
-                      <a href="/" className="hover:text-gray-600">
+                      <Link to="/" className="hover:text-gray-600">
                         Home
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="/products" className="hover:text-gray-600">
+                      <Link to="/products" className="hover:text-gray-600">
                         Products
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="/cart" className="hover:text-gray-600">
+                      <Link to="/cart" className="hover:text-gray-600">
                         Shopping Cart
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -117,4 +142,3 @@ const Header = () => {
 };
 
 export default Header;
-

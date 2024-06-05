@@ -129,7 +129,7 @@ function ProductList() {
         </div>
         <div className="w-full md:w-4/5 p-5">
           <h1 className="mb-10 text-xl font-bold">OUR PRODUCTS</h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {filteredProducts
               .slice(startIndex, endIndex)
               .map(({ id, image, title, rating, price }) => (
@@ -191,5 +191,4 @@ function ProductList() {
     </div>
   );
 }
-
 export default ProductList;
