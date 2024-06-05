@@ -159,7 +159,7 @@ function ProductList() {
                       {title}
                     </h2>
                     <p className="text-lg font-semibold mb-2 text-left">
-                      {price} kr
+                      {price} $
                     </p>
                   </Link>
                 </div>
