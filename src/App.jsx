@@ -7,7 +7,7 @@ import Cart from "./pages/Cart";
 import Products from "./pages/Products";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import { CardProvider } from './context/CartContext';
-import OrderConfirmationPage from "./pages/ OrderConfirmationPage";
+import OrderConfirmationPage from "./pages/OrderConfirmationPage";
 
 import {
   QueryClient,
