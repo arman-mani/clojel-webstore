@@ -9,31 +9,30 @@ import ProductDetailPage from "./pages/ProductDetailPage";
 import { CardProvider } from './context/CartContext';
 import OrderConfirmationPage from "./pages/OrderConfirmationPage";
 
-import {
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ChatBot from "./components/ChatBot";
 
-const queryClient = new QueryClient()
-
+const queryClient = new QueryClient();
 
 const App = () => {
   return (
     <BrowserRouter>
-    <QueryClientProvider client={queryClient}>
-      <CardProvider>
+      <QueryClientProvider client={queryClient}>
+        <CardProvider>
       <Header />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/product/:id" element={<ProductDetailPage />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/product/:id" element={<ProductDetailPage />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
       </Routes>
-      <Footer />
-      </CardProvider>
+        <Footer />
+        <ChatBot /> 
+        </CardProvider>
     </QueryClientProvider>
-  </BrowserRouter>
+    </BrowserRouter>
   );
 };
+
 export default App;
