@@ -38,7 +38,6 @@ function ProductDetail() {
       id,
       image,
       title,
-      category,
       rating,
       price,
       description
