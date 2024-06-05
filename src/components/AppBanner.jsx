@@ -10,8 +10,8 @@ const AppBanner = () => {
           className="w-32 h-32 object-contain"
         />
         <div className="flex flex-col items-start space-y-4 text-left">
-          <h2 className="text-xl font-bold border border-black px-4 py-2 inline-block">
-            WEBSTORE-APP
+          <h2 className="text-xl font-bold border border-black px-4 py-2 inline-block logo">
+            CLOJEL-APP
           </h2>
           <p className="text-lg">Updates on your orders and returns?</p>
           <button className="bg-black text-white py-2 px-6 transition-transform duration-300 transform hover:scale-110">

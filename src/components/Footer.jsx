@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="container mx-auto px-6 lg:px-8 flex flex-col items-center">
           <div className="text-center mb-8">
             <Link to="/">
-              <h1 className="font-bold text-2xl">WEBSTORE</h1>
+              <h1 className="font-bold text-2xl logo">CLOJEL</h1>
             </Link>
           </div>
           <div className="w-full grid grid-cols-1  md:grid-cols-2 lg:flex lg:justify-between lg:space-x-8 mb-4 gap-4">
