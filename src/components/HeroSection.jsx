@@ -1,7 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import DiscountBanner from "./DiscountBanner";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
+  const handleShopNow = () => {
+    navigate("/products");
+  };
+
   return (
     <div className="relative h-64 md:h-96 lg:h-[30rem] flex items-center justify-center overflow-hidden">
       <DiscountBanner />
@@ -21,7 +28,10 @@ const HeroSection = () => {
         <p className="text-white text-xs sm:text-sm md:text-lg lg:text-sm mb-6 mx-auto sm:max-w-xs md:max-w-md lg:max-w-lg font-semibold">
           Shop now and transform your lifestyle with our exclusive collections!
         </p>
-        <button className="text-white font-bold py-2 sm:py-3 px-4 sm:px-6 border border-white border-2 transition-transform duration-300 transform hover:scale-110">
+        <button
+          onClick={handleShopNow}
+          className="text-white font-bold py-2 sm:py-3 px-4 sm:px-6 border border-white border-2 transition-transform duration-300 transform hover:scale-110"
+        >
           SHOP NOW
         </button>
       </div>

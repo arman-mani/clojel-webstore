@@ -1,68 +1,77 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const images = [
-  "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=3850&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=3776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1541785329306-188b94fac0e1?q=80&w=3861&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  {
+    src: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "clothes",
+    title: "CLOTHES FOR DAYS",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=3776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "jewelery",
+    title: "GET ICED OUT",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1541785329306-188b94fac0e1?q=80&w=3861&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "electronics",
+    title: "TECHY STUFF",
+  },
 ];
 
 const CampaignSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showRightArrow, setShowRightArrow] = useState(false);
-  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const navigate = useNavigate();
 
   const handleNext = () => {
-    setShowLeftArrow(true);
-    setCurrentIndex((prevIndex) => {
-      const newIndex = prevIndex + 1;
-      if (newIndex === images.length - 1) {
-        setShowRightArrow(false);
-      }
-      return newIndex < images.length ? newIndex : prevIndex;
-    });
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => {
-      const newIndex = prevIndex - 1;
-      setShowRightArrow(true);
-      if (newIndex <= 0) {
-        setShowLeftArrow(false);
-        return 0;
-      }
-      return newIndex;
-    });
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleShopNow = () => {
+    if (images[currentIndex].category === "clothes") {
+      navigate(`/products?category=clothes`);
+    } else {
+      navigate(`/products?category=${encodeURIComponent(images[currentIndex].category)}`);
+    }
   };
 
   return (
-    <div className="relative text-center" style={{ height: "300px" }}>
+    <div className="relative" style={{ height: "300px" }}>
       <img
-        src={images[currentIndex]}
+        src={images[currentIndex].src}
         alt={`Best Seller ${currentIndex + 1}`}
         className="w-full h-full object-cover"
       />
-      <div className="absolute bottom-4 left-4 text-black ">
-        <h2 className="text-2xl font-bold mb-2 ml-10">BEST SELLERS</h2>
-        <button className="bg-black text-white px-4 py-2 transition-transform duration-300 transform hover:scale-110">
+      <div className="absolute inset-0 bg-white opacity-30"></div>
+      <div className="absolute bottom-4 left-7 text-white z-10">
+        <h2 className="text-2xl font-light mb-3 left-20 bg-black p-2">
+          {images[currentIndex].title}
+        </h2>
+        <button
+          onClick={handleShopNow}
+          className="border-2 border-solid font-bold border-black text-black px-4 py-2 transition-transform duration-300 transform hover:scale-110"
+        >
           SHOP NOW
         </button>
       </div>
-      {showLeftArrow && (
-        <button
-          onClick={handlePrev}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black text-white px-4 py-2"
-        >
-          &lt;
-        </button>
-      )}
-      {(showRightArrow || currentIndex < images.length - 1) && (
-        <button
-          onClick={handleNext}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black text-white px-4 py-2"
-        >
-          &gt;
-        </button>
-      )}
+      <button
+        onClick={handlePrev}
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black text-white px-4 py-2 z-10"
+      >
+        &lt;
+      </button>
+      <button
+        onClick={handleNext}
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black text-white px-4 py-2 z-10"
+      >
+        &gt;
+      </button>
     </div>
   );
 };
