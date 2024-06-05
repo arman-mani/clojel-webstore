@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getProductById } from "../api/dataFetching";
@@ -7,6 +7,7 @@ import { MdArrowBackIosNew } from "react-icons/md";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import TextBanner from "./TextBanner";
 import PaymentBanner from "./PaymentBanner";
+import {CartContext} from '../context/CartContext';
 
 function ProductDetail() {
   const { id } = useParams();
@@ -16,6 +17,8 @@ function ProductDetail() {
     queryFn: () => getProductById(id),
   });
   const [isFavorite, setIsFavorite] = useState(false);
+
+ const { addItemToCart } = useContext(CartContext);
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error loading product details.</div>;
@@ -28,6 +31,18 @@ function ProductDetail() {
 
   const toggleFavorite = () => {
     setIsFavorite(!isFavorite);
+  };
+
+  const handleAddToCart = () => {
+    addItemToCart({
+      id,
+      image,
+      title,
+      category,
+      rating,
+      price,
+      description
+    });
   };
 
   return (
@@ -61,7 +76,10 @@ function ProductDetail() {
         <div className="w-full lg:w-1/2 p-5">
           <h1 className="text-3xl font-bold mb-4">{title}</h1>
           <p className="text-2xl font-semibold mb-4">{price} $</p>
-          <button className="bg-black text-white py-3 px-6 flex items-center justify-center text-lg font-semibold w-full mb-4">
+          <button 
+          className="bg-black text-white py-3 px-6 flex items-center justify-center text-lg font-semibold w-full mb-4"
+          onClick={handleAddToCart}
+          >
             ADD TO CART <CiShoppingCart className="ml-2 text-2xl" />
           </button>
           <div className="text-gray-600 text-sm mb-4">

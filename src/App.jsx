@@ -6,6 +6,9 @@ import LandingPage from "./pages/LandingPage";
 import Cart from "./pages/Cart";
 import Products from "./pages/Products";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import { CardProvider } from './context/CartContext';
+import OrderConfirmationPage from "./pages/ OrderConfirmationPage";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ChatBot from "./components/ChatBot";
 
@@ -15,16 +18,19 @@ const App = () => {
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <Header />
+        <CardProvider>
+      <Header />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/products" element={<Products />} />
           <Route path="/product/:id" element={<ProductDetailPage />} />
           <Route path="/cart" element={<Cart />} />
-        </Routes>
+          <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
+      </Routes>
         <Footer />
         <ChatBot /> 
-      </QueryClientProvider>
+        </CardProvider>
+    </QueryClientProvider>
     </BrowserRouter>
   );
 };
