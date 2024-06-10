@@ -1,12 +1,12 @@
-import React from 'react'
-import OrderConfirmation from '../components/OrderConfirmation'
+import React from "react";
+import OrderConfirmation from "../components/OrderConfirmation";
 
-function  OrderConfirmationPage() {
+function OrderConfirmationPage() {
   return (
-    <div> 
-     <OrderConfirmation />
+    <div className="bg-gray-100">
+      <OrderConfirmation />
     </div>
-  )
+  );
 }
 
-export default  OrderConfirmationPage
+export default OrderConfirmationPage;

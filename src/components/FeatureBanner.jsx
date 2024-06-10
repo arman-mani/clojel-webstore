@@ -3,33 +3,37 @@ import { FaTruck, FaUndo, FaLock } from "react-icons/fa";
 
 const FeatureBanner = () => {
   return (
-    <div className="bg-gray-200 ">
+    <div className="bg-black">
       <div className="container mx-auto flex flex-col sm:flex-row justify-around items-center">
         <div className="flex items-center p-4">
-          <FaTruck className="text-md sm:text-2xl text-yellow-500" />
+          <FaTruck className="text-md sm:text-2xl text-white" />
           <div className="ml-4">
-            <h3 className="text-base sm:text-sm font-bold">FREE SHIPPING</h3>
-            <p className="text-base sm:text-xs">
+            <h3 className="text-base sm:text-sm font-bold text-white">
+              FREE SHIPPING
+            </h3>
+            <p className="text-base sm:text-xs text-white">
               Free shipping on all EU order or order above 2000SEK
             </p>
           </div>
         </div>
         <div className="flex items-center p-4">
-          <FaUndo className="text-md sm:text-2xl text-yellow-500" />
+          <FaUndo className="text-md sm:text-2xl text-white" />
           <div className="ml-4">
-            <h3 className="text-base sm:text-sm font-bold">30 Days Return</h3>
-            <p className="text-base sm:text-xs">
+            <h3 className="text-base sm:text-sm font-bold text-white">
+              30 Days Return
+            </h3>
+            <p className="text-base sm:text-xs text-white">
               Simply return it within 30 days for an exchange
             </p>
           </div>
         </div>
         <div className="flex items-center p-4">
-          <FaLock className="text-md sm:text-2xl text-yellow-500" />
+          <FaLock className="text-md sm:text-2xl text-white" />
           <div className="ml-4">
-            <h3 className="text-base sm:text-sm font-bold">
+            <h3 className="text-base sm:text-sm font-bold text-white">
               100% Payment Secure
             </h3>
-            <p className="text-base sm:text-xs">
+            <p className="text-base sm:text-xs text-white">
               Simply return it within 30 days for an exchange
             </p>
           </div>

@@ -2,11 +2,12 @@ import React, { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
 
-export const CardProvider = ({ children }) => {
+export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
     const storedCartItems = localStorage.getItem("cartItems");
     return storedCartItems ? JSON.parse(storedCartItems) : [];
   });
+
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
@@ -31,6 +32,7 @@ export const CardProvider = ({ children }) => {
   const removeItemFromCart = (itemId) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
   };
+
   const updateItemQuantity = (itemId, quantity) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
