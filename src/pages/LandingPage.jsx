@@ -1,11 +1,11 @@
 import React from "react";
 import HeroSection from "../components/HeroSection";
-import AppBanner from "../components/AppBanner";
-import PaymentBanner from "../components/PaymentBanner";
-import TextBanner from "../components/TextBanner";
-import FeatureBanner from "../components/FeatureBanner";
+import AppBanner from "../components/Banners/AppBanner";
+import PaymentBanner from "../components/Banners/PaymentBanner";
+import TextBanner from "../components/Banners/TextBanner";
+import FeatureBanner from "../components/Banners/FeatureBanner";
 import CategoryGrid from "../components/CategoryGrid";
-import CampaignSlider from "../components/CampaignSlider";
+import CampaignSlider from "../components/Banners/CampaignSlider";
 
 const LandingPage = () => {
   return (
