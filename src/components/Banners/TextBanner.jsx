@@ -1,5 +1,5 @@
 import React from "react";
-import aboutUsImage from "../assets/unsplash_TamMbr4okv4.png";
+import aboutUsImage from "../../assets/unsplash_TamMbr4okv4.png";
 
 const TextBanner = () => {
   return (

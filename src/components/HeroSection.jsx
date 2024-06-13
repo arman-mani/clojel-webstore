@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import DiscountBanner from "./DiscountBanner";
+import DiscountBanner from "./Banners/DiscountBanner";
 
 const HeroSection = () => {
   const navigate = useNavigate();

@@ -4,10 +4,10 @@ import { Link, useLocation } from "react-router-dom";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { getProducts, getProductsCategory } from "../api/dataFetching";
-import CampaignSlider from "./CampaignSlider";
-import ScrollingBanner from "./ScrollingBanner";
-import AppBanner from "./AppBanner";
-import PaymentBanner from "./PaymentBanner";
+import CampaignSlider from "./Banners/CampaignSlider";
+import ScrollingBanner from "./Banners/ScrollingBanner";
+import AppBanner from "./Banners/AppBanner";
+import PaymentBanner from "./Banners/PaymentBanner";
 
 const ITEMS_PER_PAGE = 12;
 
