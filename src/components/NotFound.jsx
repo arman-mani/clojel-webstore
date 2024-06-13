@@ -21,11 +21,11 @@ const NotFound = (props) => {
 
   return (
     <div className="bg-gray-100">
-      <div className="flex items-center justify-center h-[600px]">
-        <div className="flex flex-col items-center">
+      <div className="flex items-center justify-center h-[600px] px-3 max-w-full">
+        <div className="flex flex-col text-center items-center">
           <IconComponent size="60" />
-          <h1>{props.title}</h1>
-          <p>{props.description}</p>
+          <h1 className="my-1 font-semibold">{props.title}</h1>
+          <p className="mb-3">{props.description}</p>
           <button
             onClick={handlePath}
             className="bg-black text-white py-2 px-6 transition-transform duration-300 transform hover:scale-110"
