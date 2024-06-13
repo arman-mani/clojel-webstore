@@ -9,7 +9,7 @@ const AppBanner = () => {
           alt="QR Code"
           className="w-32 h-32 object-contain"
         />
-        <div className="flex flex-col items-start space-y-4 text-left">
+        <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-left">
           <h2
             className="text-xl font-bold border border-black px-4 py-2 inline-block logo"
             style={{ backgroundColor: "transparent" }}
