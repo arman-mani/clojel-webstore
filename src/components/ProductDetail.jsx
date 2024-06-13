@@ -5,8 +5,8 @@ import { getProductById } from "../api/dataFetching";
 import { CiShoppingCart } from "react-icons/ci";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
-import TextBanner from "./TextBanner";
-import PaymentBanner from "./PaymentBanner";
+import TextBanner from "./Banners/TextBanner";
+import PaymentBanner from "./Banners/PaymentBanner";
 import { CartContext } from "../context/CartContext";
 
 function ProductDetail() {
