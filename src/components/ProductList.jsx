@@ -135,7 +135,7 @@ function ProductList() {
               .map(({ id, image, title, rating, price }) => (
                 <div
                   key={id}
-                  className="relative bg-white p-2 border rounded-md shadow-md h-58 w-full"
+                  className="relative bg-white p-2 border rounded-md shadow-md h-58 w-full hover:bg-gray-100"
                 >
                   <button
                     className={`absolute top-2 right-2 text-2xl ${

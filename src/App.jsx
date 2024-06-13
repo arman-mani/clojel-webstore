@@ -8,7 +8,6 @@ import Products from "./pages/Products";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import { CartProvider } from "./context/CartContext";
 import OrderConfirmationPage from "./pages/OrderConfirmationPage";
-
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ChatBot from "./components/ChatBot";
 
