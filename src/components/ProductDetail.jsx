@@ -9,6 +9,7 @@ import TextBanner from "./Banners/TextBanner";
 import PaymentBanner from "./Banners/PaymentBanner";
 import { CartContext } from "../context/CartContext";
 import NotFound from "./NotFound";
+import Loading from "./Loading";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -21,7 +22,7 @@ function ProductDetail() {
 
   const { addItemToCart } = useContext(CartContext);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loading/>;
   if (isError)
     return (
       <NotFound
