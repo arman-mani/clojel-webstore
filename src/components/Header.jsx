@@ -32,7 +32,7 @@ const Header = () => {
             <li>
               <Link
                 to="/"
-                className="hover:border-b hover:border-black pb-1"
+                className=" font-poppins hover:border-b hover:border-black pb-1"
                 onClick={closeMenu}
               >
                 Home
@@ -41,7 +41,7 @@ const Header = () => {
             <li>
               <Link
                 to="/products"
-                className="hover:border-b hover:border-black pb-1"
+                className=" font-poppins hover:border-b hover:border-black pb-1"
                 onClick={closeMenu}
               >
                 Products
@@ -50,7 +50,7 @@ const Header = () => {
             <li>
               <Link
                 to="/cart"
-                className="hover:border-b hover:border-black pb-1"
+                className=" font-poppins hover:border-b hover:border-black pb-1"
                 onClick={closeMenu}
               >
                 Shopping Cart
@@ -63,7 +63,7 @@ const Header = () => {
                 <IoCartOutline className="h-6 w-6 hover:text-gray-600" />
               </Link>
               {totalItems > 0 && (
-                <span className="absolute -top-2 -right-2 bg-blue-600 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">
+                <span className="absolute -top-2 -right-2 bg-black text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">
                   {totalItems}
                 </span>
               )}
@@ -79,7 +79,7 @@ const Header = () => {
                 <IoCartOutline className="h-6 w-6 hover:text-gray-600" />
               </Link>
               {totalItems > 0 && (
-                <span className="absolute -top-2 -right-2 bg-blue-600 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">
+                <span className="absolute -top-2 -right-2 bg-black text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">
                   {totalItems}
                 </span>
               )}
@@ -123,17 +123,21 @@ const Header = () => {
             </svg>
             <ul className="flex flex-col space-y-4">
               <li>
-                <Link to="/" onClick={closeMenu}>
+                <Link to="/" onClick={closeMenu} className="font-poppins">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/products" onClick={closeMenu}>
+                <Link
+                  to="/products"
+                  onClick={closeMenu}
+                  className="font-poppins"
+                >
                   Products
                 </Link>
               </li>
               <li>
-                <Link to="/cart" onClick={closeMenu}>
+                <Link to="/cart" onClick={closeMenu} className="font-poppins">
                   Shopping Cart
                 </Link>
               </li>

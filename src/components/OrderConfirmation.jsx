@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const OrderConfirmation = () => {
   const location = useLocation();
@@ -49,6 +49,12 @@ const OrderConfirmation = () => {
         <h2 className="font-bold text-black">
           Total Amount: ${totalAmount.toFixed(2)}
         </h2>
+        <Link
+          to="/products"
+          className="inline-block bg-black text-white py-2 px-4 border hover:bg-gray-800 mt-2"
+        >
+          Continue Shopping
+        </Link>
       </div>
     </div>
   );
