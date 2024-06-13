@@ -51,7 +51,7 @@ const OrderConfirmation = () => {
         </h2>
         <Link
           to="/products"
-          className="inline-block bg-black text-white py-2 px-4 border hover:bg-gray-800 mt-2"
+          className="inline-block bg-black text-white py-2 px-4 border hover:bg-gray-800 mt-2 font-poppins"
         >
           Continue Shopping
         </Link>

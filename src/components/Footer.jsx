@@ -14,7 +14,7 @@ const Footer = () => {
             </Link>
           </div>
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-between lg:space-x-8 mb-4 gap-4">
-            <div className="w-full lg:w-1/4 mb- lg:mb-0 px-4 lg:px-2">
+            <div className="w-full  lg:w-1/4 mb- lg:mb-0 px-4 lg:px-2">
               <h3 className="font-semibold mb-2">About Us</h3>
               <p className="text-black max-w-sm">
                 The freshest clothes, the iciest jewelry and the newest
@@ -24,9 +24,9 @@ const Footer = () => {
             <div className="w-full lg:w-1/4 mb- lg:mb-0 px-4 lg:px-2">
               <h3 className="font-semibold mb-2">Products</h3>
               <ul>
-                <li className="mb-2">Clothes</li>
-                <li className="mb-2">Jewelry</li>
-                <li className="mb-2">Electronics</li>
+                <li className="mb-2 cursor-pointer">Clothes</li>
+                <li className="mb-2 cursor-pointer">Jewelry</li>
+                <li className="mb-2 cursor-pointer">Electronics</li>
               </ul>
             </div>
             <div className="w-full lg:w-1/4 mb- lg:mb-0 px-4 lg:px-2">
@@ -42,9 +42,9 @@ const Footer = () => {
             <div className="w-full lg:w-1/4 mb- lg:mb-0 px-4 lg:px-2">
               <h3 className="font-semibold mb-2">Help</h3>
               <ul>
-                <li className="mb-2">Shipping & Returns</li>
-                <li className="mb-2">Privacy Policy</li>
-                <li className="mb-2">Terms & Conditions</li>
+                <li className="mb-2 cursor-pointer">Shipping & Returns</li>
+                <li className="mb-2 cursor-pointer">Privacy Policy</li>
+                <li className="mb-2 cursor-pointer">Terms & Conditions</li>
               </ul>
             </div>
 

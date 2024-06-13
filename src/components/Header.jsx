@@ -105,7 +105,7 @@ const Header = () => {
           </div>
         </div>
         {isOpen && (
-          <div className="fixed top-0 left-0 w-full h-40 bg-white flex flex-col items-center justify-center z-50 md:hidden">
+          <div className="fixed top-0 left-0 w-full h-40 bg-white flex flex-col items-center justify-center z-50 md:hidden border-b border-gray-500">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

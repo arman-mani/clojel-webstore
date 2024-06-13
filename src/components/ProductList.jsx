@@ -103,7 +103,7 @@ function ProductList() {
       <CampaignSlider />
       <div className="flex flex-col md:flex-row bg-gray-100">
         <div className="w-full md:w-1/5 p-5">
-          <h2 className="font-bold mb-4">FILTER</h2>
+          <h2 className="font-bold mb-4">Filter by category</h2>
           <div className="space-y-2">
             {categories.map((category) => (
               <div

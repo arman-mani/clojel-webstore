@@ -12,7 +12,7 @@ const FeatureBanner = () => {
               FREE SHIPPING
             </h3>
             <p className="text-base sm:text-xs text-white">
-              Free shipping on all EU order or order above 2000SEK
+              Free shipping on all orders above $200. Order now.
             </p>
           </div>
         </div>
@@ -23,7 +23,7 @@ const FeatureBanner = () => {
               30 Days Return
             </h3>
             <p className="text-base sm:text-xs text-white">
-              Simply return it within 30 days for an exchange
+              Simply return it within 30 days for an exchange.
             </p>
           </div>
         </div>
@@ -34,7 +34,7 @@ const FeatureBanner = () => {
               100% Payment Secure
             </h3>
             <p className="text-base sm:text-xs text-white">
-              Simply return it within 30 days for an exchange
+              Your transactions are always 100% secure with us.
             </p>
           </div>
         </div>
