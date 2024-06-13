@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LandingPage from "./pages/LandingPage";
 import Cart from "./pages/Cart";
+import NotFound from "./components/NotFound";
 import Products from "./pages/Products";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import { CartProvider } from "./context/CartContext";
@@ -27,6 +28,18 @@ const App = () => {
             <Route
               path="/order-confirmation"
               element={<OrderConfirmationPage />}
+            />
+            <Route
+              path="/*"
+              element={
+                <NotFound
+                  title="Page Not Found"
+                  description="The page you are trying to access is not available"
+                  type="generic"
+                  path="/"
+                  buttonText="Go Home"
+                />
+              }
             />
           </Routes>
           <Footer />

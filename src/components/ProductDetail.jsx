@@ -8,6 +8,8 @@ import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import TextBanner from "./Banners/TextBanner";
 import PaymentBanner from "./Banners/PaymentBanner";
 import { CartContext } from "../context/CartContext";
+import NotFound from "./NotFound";
+import Loading from "./Loading";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -20,8 +22,17 @@ function ProductDetail() {
 
   const { addItemToCart } = useContext(CartContext);
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading product details.</div>;
+  if (isLoading) return <Loading/>;
+  if (isError)
+    return (
+      <NotFound
+        title="Product Not Found"
+        description="The product you are trying to access is not available"
+        type="product"
+        path="/products"
+        buttonText="Go to Products"
+      />
+    );
 
   const { image, title, rating, price, description } = data;
 
