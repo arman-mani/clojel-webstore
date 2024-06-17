@@ -21,7 +21,7 @@ const CartComponent = () => {
     return (
       <div className="flex items-center justify-center h-screen text-2xl px-4 text-center">
         You don't have anything in your cart. Visit our products and start
-        buying.
+        shopping.
       </div>
     );
   }

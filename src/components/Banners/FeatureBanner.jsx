@@ -12,7 +12,7 @@ const FeatureBanner = () => {
               FREE SHIPPING
             </h3>
             <p className="text-base sm:text-xs text-white">
-              Free shipping on all orders above $200. Order now.
+              Free shipping on all orders above $200 at no extra cost.
             </p>
           </div>
         </div>
@@ -23,7 +23,8 @@ const FeatureBanner = () => {
               30 Days Return
             </h3>
             <p className="text-base sm:text-xs text-white">
-              Simply return it within 30 days for an exchange.
+              Simply return it within 30 days for an exchange, no questions
+              asked.
             </p>
           </div>
         </div>
