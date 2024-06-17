@@ -47,7 +47,6 @@ const Footer = () => {
                 <li className="mb-2 cursor-pointer">Terms & Conditions</li>
               </ul>
             </div>
-
             <div className="w-full lg:w-1/4 px-4 mt-4 lg:mt-0 lg:px-2 max-w-sm lg:self-start">
               <h3 className="font-semibold text-lg mb-2">
                 Subscribe for Offers

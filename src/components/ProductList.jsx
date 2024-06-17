@@ -11,7 +11,7 @@ import PaymentBanner from "./Banners/PaymentBanner";
 
 const ITEMS_PER_PAGE = 12;
 
-function ProductList() {
+const ProductList = () => {
   const [selectedCategories, setSelectedCategories] = useState(["All"]);
   const [currentPage, setCurrentPage] = useState(1);
   const [favorites, setFavorites] = useState([]);
@@ -132,15 +132,15 @@ function ProductList() {
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {filteredProducts
               .slice(startIndex, endIndex)
-              .map(({ id, image, title, rating, price }) => (
+              .map(({ id, image, title, price }) => (
                 <div
                   key={id}
-                  className="relative bg-white p-2 border rounded-md shadow-md h-58 w-full hover:bg-gray-100"
+                  className="relative bg-white p-6 pt-2 border rounded-md shadow-md h-58 w-full hover:bg-gray-100"
                 >
                   <button
                     className={`absolute top-2 right-2 text-2xl ${
                       favorites.includes(id) ? "text-red-500" : "text-gray-400"
-                    }`}
+                    } z-10`}
                     onClick={() => toggleFavorite(id)}
                   >
                     {favorites.includes(id) ? (
@@ -149,7 +149,7 @@ function ProductList() {
                       <IoMdHeartEmpty />
                     )}
                   </button>
-                  <Link to={`/product/${id}`} className="block h-full">
+                  <Link to={`/product/${id}`} className="block h-full pt-4">
                     <img
                       className="h-32 w-full object-contain mb-2"
                       src={image}
@@ -190,5 +190,5 @@ function ProductList() {
       <PaymentBanner />
     </div>
   );
-}
+};
 export default ProductList;

@@ -11,7 +11,7 @@ import { CartContext } from "../context/CartContext";
 import NotFound from "./NotFound";
 import Loading from "./Loading";
 
-function ProductDetail() {
+const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { data, isLoading, isError } = useQuery({
@@ -22,7 +22,7 @@ function ProductDetail() {
 
   const { addItemToCart } = useContext(CartContext);
 
-  if (isLoading) return <Loading/>;
+  if (isLoading) return <Loading />;
   if (isError)
     return (
       <NotFound
@@ -58,7 +58,7 @@ function ProductDetail() {
   return (
     <div>
       <div className="flex flex-wrap p-5">
-        <div className="w-full lg:w-1/2 p-5 flex flex-col items-center relative">
+        <div className="w-full lg:w-1/2 p-5 flex flex-col items-center relative pt-12">
           <div className="bg-white w-full max-w-xs h-auto">
             <img
               className="object-contain w-full h-full"
@@ -68,13 +68,13 @@ function ProductDetail() {
           </div>
           <button
             onClick={goBack}
-            className="absolute left-0 mt-4 bg-black text-white rounded-full p-3 flex items-center justify-center"
+            className="absolute left-0 mt-4 bg-black text-white rounded-full p-3 flex items-center justify-center top-2"
           >
             <MdArrowBackIosNew className="text-xl" />
           </button>
           <button
             onClick={toggleFavorite}
-            className="absolute top-0 right-0 mt-4 mr-4 bg-transparent text-2xl"
+            className="absolute top-2 right-0 mt-4 mr-4 bg-transparent text-2xl"
           >
             {isFavorite ? (
               <IoMdHeart className="text-red-500" />
@@ -121,6 +121,6 @@ function ProductDetail() {
       <PaymentBanner />
     </div>
   );
-}
+};
 
 export default ProductDetail;
