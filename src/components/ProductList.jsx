@@ -72,6 +72,12 @@ const ProductList = () => {
     });
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+    });
+  };
+
   if (productsLoading || categoriesLoading) return <div>Loading...</div>;
   if (productsError || categoriesError)
     return <div>Failed to load data. Please try again later.</div>;
@@ -149,13 +155,17 @@ const ProductList = () => {
                       <IoMdHeartEmpty />
                     )}
                   </button>
-                  <Link to={`/product/${id}`} className="block h-full pt-4">
+                  <Link
+                    to={`/product/${id}`}
+                    className="block h-full pt-4"
+                    onClick={scrollToTop}
+                  >
                     <img
                       className="h-32 w-full object-contain mb-2"
                       src={image}
                       alt={title}
                     />
-                    <h2 className="font-bold mb-2 text-left text-sm truncate hover:text-gray-500">
+                    <h2 className="font-bold mb-2 text-left text-sm truncate">
                       {title}
                     </h2>
                     <p className="text-lg font-semibold mb-2 text-left">

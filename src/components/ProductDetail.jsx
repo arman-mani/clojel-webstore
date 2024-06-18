@@ -53,6 +53,7 @@ const ProductDetail = () => {
       price,
       description,
     });
+    window.scrollTo(0, 0);
   };
 
   return (

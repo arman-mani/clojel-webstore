@@ -9,7 +9,7 @@ const Footer = () => {
       <footer className="bg-white text-black py-8">
         <div className="container mx-auto px-6 lg:px-8 flex flex-col items-center">
           <div className="text-center mb-8">
-            <Link to="/">
+            <Link to="/" onClick={() => window.scrollTo({ top: 0 })}>
               <h1 className="font-bold text-xl logo">CLOJEL</h1>
             </Link>
           </div>
@@ -51,20 +51,13 @@ const Footer = () => {
               <h3 className="font-semibold text-lg mb-2">
                 Subscribe for Offers
               </h3>
-              <div className="flex mb-4">
+              <div className="flex flex-col sm:flex-row mb-4">
                 <input
                   type="email"
                   placeholder="Enter email here"
-                  className="border border-black border-solid p-2 flex-grow text-sm"
-                  style={{
-                    borderTopRightRadius: 0,
-                    borderBottomRightRadius: 0,
-                  }}
+                  className="border border-black border-solid p-2 flex-grow text-sm -md sm:rounded-r-none"
                 />
-                <button
-                  className="bg-black text-white px-4 py-2 border border-black text-sm"
-                  style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
-                >
+                <button className="bg-black text-white px-4 py-2  border-black text-sm mt-2 sm:mt-0  sm:rounded-l-none">
                   Subscribe
                 </button>
               </div>

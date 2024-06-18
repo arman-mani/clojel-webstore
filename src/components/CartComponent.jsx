@@ -15,6 +15,7 @@ const CartComponent = () => {
   const handleOrderConfirmation = () => {
     navigate("/order-confirmation", { state: { cartItems } });
     clearCart();
+    window.scrollTo(0, 0);
   };
 
   if (cartItems.length === 0) {

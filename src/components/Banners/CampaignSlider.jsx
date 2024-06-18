@@ -37,8 +37,13 @@ const CampaignSlider = () => {
     if (images[currentIndex].category === "clothes") {
       navigate(`/products?category=clothes`);
     } else {
-      navigate(`/products?category=${encodeURIComponent(images[currentIndex].category)}`);
+      navigate(
+        `/products?category=${encodeURIComponent(
+          images[currentIndex].category
+        )}`
+      );
     }
+    window.scrollTo(0, 0);
   };
 
   return (
